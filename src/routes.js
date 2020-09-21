@@ -8,6 +8,6 @@ const routes = Router();
 
 routes.get('/searchLyrics', SearchTrackLyricController.show);
 routes.get('/current/track', SearchCurrentTrackController.show);
-routes.post('/token/exchange', SpotifyTokenController.show);
+routes.post('/token/exchange', SpotifyTokenController.store);
 
 module.exports = routes;
