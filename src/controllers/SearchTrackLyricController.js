@@ -9,7 +9,8 @@ class SearchTrackLyricController {
       const {track_id} = searchResponse.data.message.body.track_list[0].track;
       
       const response = await muxisMatchApi.get(`/ws/1.1/track.lyrics.get?track_id=${track_id}`)
-      const lyrics = response.data.message.body.lyrics.lyrics_body;
+
+      const lyrics = response.data.message.body.lyrics? response.data.message.body.lyrics.lyrics_body : 'Não encontrada';
 
       return res.json(lyrics);
     }
