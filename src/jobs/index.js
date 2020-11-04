@@ -14,10 +14,9 @@ class SearchCurrentTrackJob {
               progress_ms: response.data.progress_ms
             },
           )
-          
           sendMessage('currentTrack', formattedResponse)
         }
-      }, 100);
+      }, 200);
     }
 }
 

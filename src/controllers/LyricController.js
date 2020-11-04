@@ -17,8 +17,13 @@ class LyricController {
       lines,
     } = req.body;
 
-    const lyric = await Lyrics.create({trackId, writers, lines});
+    const findLyric = await Lyrics.findOne({trackId});
+    
+    if(findLyric)
+      return res.json(findLyric);
 
+    const lyric = await Lyrics.create({trackId, writers, lines});
+    
     return res.status(201).json(lyric);
   }
 }
